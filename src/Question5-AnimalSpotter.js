@@ -13,25 +13,30 @@ import React, { Component } from "react";
 class AnimalSpotter extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { count: 0 };
   }
 
   render() {
     return (
       <div className="animal-spotter">
-        <p>Number of animals spotted: {this.state.animalSpotted}</p>
+        <p>Number of animals spotted: {this.state.count}</p>
         <CounterButton handleClick={this.spotAnimal} />
       </div>
     );
   }
 }
 
-function CounterButton(props) {
+CounterButton = props => {
+  this.setState(previousState => {
+    return {
+      count: previousState.count + 1
+    };
+  });
   return (
     <button style={{ background: "lightseagreen", color: "white" }} onClick>
       I spotted an animal!
     </button>
   );
-}
+};
 
 export default AnimalSpotter;

@@ -1,22 +1,35 @@
 /*
- * ============= Question 4 =============
+ * ============= Question 3 =============
  *
- * Convert the MonkeysExhibit component below to a class component.
+ * The TigersExhibit component below receives 2 props:
+ * - population which is a number
+ * - habitats which is an array of strings
+ *
+ * Part A: Replace the dots (...) in the paragraph (<p>) element below with the
+ * population prop.
+ *
+ * Part B: Replace the comment in the unordered list (<ul>) element below with a
+ * list element (<li>) element for every habitat in the habitats prop
+ *
+ * HINT 1: you can transform an array using the .map method
+ * HINT 2: when you are rendering a list in React, remember that you need to
+ * provide a key prop which tells React which list item is which
  */
 
 import React from "react";
 
-function MonkeysExhibit(props) {
+const TigersExhibit = props => {
   return (
-    <section className="monkeys">
-      <h2>Latin name: {props.latinName}</h2>
+    <div className="tigers">
+      <h2>Tigers</h2>
+      <p>There are {this.props.population} tigers in the world</p>
       <ul>
-        {props.commonSpecies.map((speciesName, index) => {
-          return <li key={index}>{speciesName}</li>;
-        })}
+        {this.props.habitats.map(index => (
+          <li>{index}</li>
+        ))}{" "}
       </ul>
-    </section>
+    </div>
   );
-}
+};
 
-export default MonkeysExhibit;
+export default TigersExhibit;

@@ -18,14 +18,18 @@
 
 import React from "react";
 
-function TigersExhibit() {
+const TigersExhibit = props => {
   return (
     <div className="tigers">
       <h2>Tigers</h2>
-      <p>There are ... tigers in the world</p>
-      <ul>{/* DELETE THIS LINE AND WRITE THE ANSWER PART B HERE */}</ul>
+      <p>There are {this.props.population} tigers in the world</p>
+      <ul>
+        {this.props.habitats.map(index => (
+          <li>{index}</li>
+        ))}{" "}
+      </ul>
     </div>
   );
-}
+};
 
 export default TigersExhibit;
